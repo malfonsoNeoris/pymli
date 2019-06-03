@@ -7,9 +7,9 @@ from keras.losses import mean_squared_error
 
 from sklearn.utils import check_array
 
-from models.base import BaseDetector
-from utils.stats_models import pairwise_distances
-from utils.decorators import only_fitted
+from adfwk.models.base import BaseDetector
+from adfwk.utils.stats_models import pairwise_distances
+from adfwk.utils.decorators import only_fitted
 
 
 class AutoEncoder(BaseDetector):

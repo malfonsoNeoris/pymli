@@ -6,10 +6,10 @@ from keras.models import Model, Sequential
 
 from sklearn.utils import check_array
 
-from layers.kldivergence import KLDivergenceLayer
-from models.base import BaseDetector
-from utils.stats_models import pairwise_distances, nll
-from utils.decorators import only_fitted
+from adfwk.models.layers.kldivergence import KLDivergenceLayer
+from adfwk.models.base import BaseDetector
+from adfwk.utils.stats_models import pairwise_distances, nll
+from adfwk.utils.decorators import only_fitted
 
 
 class VariationalAutoEncoder(BaseDetector):
@@ -32,12 +32,6 @@ class VariationalAutoEncoder(BaseDetector):
         self.validation_size = validation_size
         self.preprocessing = preprocessing
         self.verbose = verbose
-
-        self.n_samples_ = None
-        self.n_features_ = None
-        self.scaler_ = None
-        self.model_ = None
-        self.history_ = None
 
     def _build_model(self):
         x = Input(shape=(self.n_features_,))
