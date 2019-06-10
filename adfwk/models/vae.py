@@ -8,11 +8,12 @@ from sklearn.utils import check_array
 
 from adfwk.models.layers.kldivergence import KLDivergenceLayer
 from adfwk.models.base import BaseDetector
+from adfwk.models.mixins import KerasSaveModelMixin
 from adfwk.utils.stats_models import pairwise_distances, nll
 from adfwk.utils.decorators import only_fitted
 
 
-class VariationalAutoEncoder(BaseDetector):
+class VariationalAutoEncoder(BaseDetector, KerasSaveModelMixin):
     def __init__(self, intermediate_dim=64, latent_dim=32,
                  hidden_activation='relu', output_activation='sigmoid',
                  optimizer='rmsprop',

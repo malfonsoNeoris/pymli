@@ -8,11 +8,12 @@ from keras.losses import mean_squared_error
 from sklearn.utils import check_array
 
 from adfwk.models.base import BaseDetector
+from adfwk.models.mixins import KerasSaveModelMixin
 from adfwk.utils.stats_models import pairwise_distances
 from adfwk.utils.decorators import only_fitted
 
 
-class AutoEncoder(BaseDetector):
+class AutoEncoder(BaseDetector, KerasSaveModelMixin):
     def __init__(self, hidden_neurons=None,
                  hidden_activation='relu', output_activation='sigmoid',
                  loss=mean_squared_error, optimizer='adam',
