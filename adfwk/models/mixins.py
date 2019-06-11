@@ -32,7 +32,7 @@ class KerasSaveModelMixin(SaveModelMixin):
 
     def load_model(self, path):
         with open(path + '/architecture.json', 'r') as file:
-            self.model_ = model_from_json(file.read(), custom_objects={'KLDivergenceLayer': KLDivergenceLayer})
+            self.model_ = model_from_json(file.read())
         self.model_.load_weights(path + '/model_.h5')
 
 

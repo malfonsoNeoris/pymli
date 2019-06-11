@@ -15,7 +15,7 @@ class IsolationForest(BaseDetector, SKlearnSaveModelMixin):
                  n_jobs=1,
                  behaviour='old',
                  random_state=None,
-                 preprocessing=True,
+                 preprocessing=False,
                  verbose=0):
         super(IsolationForest, self).__init__(contamination=contamination,
                                               preprocessing=preprocessing,

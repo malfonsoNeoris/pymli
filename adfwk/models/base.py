@@ -15,7 +15,7 @@ from adfwk.utils.decorators import only_fitted
 class BaseDetector(abc.ABC):
 
     @abc.abstractmethod
-    def __init__(self, contamination=0.1, preprocessing=True, random_state=None):
+    def __init__(self, contamination=0.1, preprocessing=False, random_state=None):
         self.contamination = contamination
         self.preprocessing = preprocessing
         self.random_state = random_state
