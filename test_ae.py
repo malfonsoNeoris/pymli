@@ -1,4 +1,4 @@
-from adfwk.models.vae import VariationalAutoEncoder
+from adfwk.models.ae import AutoEncoder
 from adfwk.visualization.graphs import scatter2d
 
 import matplotlib.pyplot as plt
@@ -18,8 +18,8 @@ epochs = 10
 x_train = x_train.reshape(-1, original_dim) / 255.
 x_test = x_test.reshape(-1, original_dim) / 255.
 
-vae = VariationalAutoEncoder(intermediate_dim=intermediate_dim, latent_dim=latent_dim, epochs=epochs)
-vae.fit(x_train)
+ae = AutoEncoder(intermediate_dim=intermediate_dim, latent_dim=latent_dim, epochs=epochs)
+ae.fit(x_train)
 
 n = 15
 quantile_min = 0.01
@@ -32,7 +32,7 @@ if latent_dim == 2:
     z_grid = np.dstack(np.meshgrid(z1, z2))
     z_grid = z_grid.reshape(n*n, latent_dim)
 
-    x_pred_grid = vae.decoder_.predict(z_grid).reshape(n, n, img_rows, img_cols)
+    x_pred_grid = ae.decoder_.predict(z_grid).reshape(n, n, img_rows, img_cols)
     fig, ax = plt.subplots(figsize=(5, 5))
     ax.imshow(np.block(list(map(list, x_pred_grid))), cmap='gray')
     ax.set_xticks(np.arange(0, n*img_rows, img_rows) + .5 * img_rows)
@@ -43,7 +43,7 @@ if latent_dim == 2:
     ax.set_ylabel('$z_2$')
     plt.show()
 
-z_test = vae.encoder_.predict(x_test)
+z_test = ae.encoder_.predict(x_test)
 if latent_dim > 2:
     z_test = PCA(n_components=2).fit_transform(z_test)
 scatter2d(z_test[:, 0], z_test[:, 1], cs=y_test)
