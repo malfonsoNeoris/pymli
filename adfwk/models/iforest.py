@@ -1,11 +1,12 @@
 from adfwk.models.base import BaseDetector
+from adfwk.models.mixins import SKlearnSaveModelMixin
 from adfwk.utils.decorators import only_fitted
 from adfwk.utils.utility import invert_order
 
 from sklearn.ensemble import IsolationForest as SKIsolationForest
 
 
-class IsolationForest(BaseDetector):
+class IsolationForest(BaseDetector, SKlearnSaveModelMixin):
     def __init__(self, n_estimators=100,
                  max_samples='auto',
                  contamination=0.1,
@@ -14,7 +15,7 @@ class IsolationForest(BaseDetector):
                  n_jobs=1,
                  behaviour='old',
                  random_state=None,
-                 preprocessing=True,
+                 preprocessing=False,
                  verbose=0):
         super(IsolationForest, self).__init__(contamination=contamination,
                                               preprocessing=preprocessing,

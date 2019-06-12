@@ -1,4 +1,5 @@
 import abc
+import pickle
 import numpy as np
 
 from scipy import special
@@ -14,7 +15,7 @@ from adfwk.utils.decorators import only_fitted
 class BaseDetector(abc.ABC):
 
     @abc.abstractmethod
-    def __init__(self, contamination=0.1, preprocessing=True, random_state=None):
+    def __init__(self, contamination=0.1, preprocessing=False, random_state=None):
         self.contamination = contamination
         self.preprocessing = preprocessing
         self.random_state = random_state
@@ -109,3 +110,19 @@ class BaseDetector(abc.ABC):
         self._sigma = np.std(self.decision_scores_)
 
         return self
+
+    @only_fitted(['model_', 'history_'])
+    def save(self, path):
+        model_ = self.model_
+        self.model_ = None
+        with open(path + '/model.pkl', 'wb') as file:
+            pickle.dump(self, file, pickle.HIGHEST_PROTOCOL)
+        self.model_ = model_
+        self.save_model(path)
+
+    @classmethod
+    def load(cls, path):
+        with open(path + '/model.pkl', 'rb') as file:
+            model = pickle.load(file)
+        model.load_model(path)
+        return model

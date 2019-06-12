@@ -7,6 +7,7 @@ from keras.layers import Dense, Dropout
 from sklearn.utils import check_array
 
 from adfwk.models.base import BaseDetector
+from adfwk.models.mixins import KerasSaveModelMixin
 from adfwk.utils.stats_models import pairwise_distances
 from adfwk.utils.decorators import only_fitted
 
@@ -16,7 +17,7 @@ class AutoEncoder(BaseDetector):
                  hidden_activation='relu', output_activation='sigmoid',
                  loss='binary_crossentropy', optimizer='rmsprop',
                  epochs=100, batch_size=32, dropout_rate=0.2,
-                 l2_regularizer=0.1, validation_size=0.1, preprocessing=True,
+                 l2_regularizer=0.1, validation_size=0.1, preprocessing=False,
                  verbose=1, contamination=0.1, random_state=None):
         super(AutoEncoder, self).__init__(contamination=contamination,
                                           preprocessing=preprocessing,
