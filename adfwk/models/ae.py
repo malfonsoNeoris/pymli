@@ -1,9 +1,8 @@
 import numpy as np
+from keras import Input, Model
 
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
-from keras.regularizers import l2
-from keras.losses import mean_squared_error
 
 from sklearn.utils import check_array
 
@@ -13,16 +12,17 @@ from adfwk.utils.decorators import only_fitted
 
 
 class AutoEncoder(BaseDetector):
-    def __init__(self, hidden_neurons=None,
+    def __init__(self, intermediate_dim=64, latent_dim=32,
                  hidden_activation='relu', output_activation='sigmoid',
-                 loss=mean_squared_error, optimizer='adam',
+                 loss='binary_crossentropy', optimizer='rmsprop',
                  epochs=100, batch_size=32, dropout_rate=0.2,
                  l2_regularizer=0.1, validation_size=0.1, preprocessing=True,
                  verbose=1, contamination=0.1, random_state=None):
         super(AutoEncoder, self).__init__(contamination=contamination,
                                           preprocessing=preprocessing,
                                           random_state=random_state)
-        self.hidden_neurons = hidden_neurons
+        self.intermediate_dim = intermediate_dim
+        self.latent_dim = latent_dim
         self.hidden_activation = hidden_activation
         self.output_activation = output_activation
         self.loss = loss
@@ -35,61 +35,39 @@ class AutoEncoder(BaseDetector):
         self.preprocessing = preprocessing
         self.verbose = verbose
 
-        self.n_samples_ = None
-        self.n_features_ = None
-        self.scaler_ = None
-        self.encoding_dim_ = None
-        self.compression_rate_ = None
-        self.model_ = None
-        self.history_ = None
-
-        # default values
-        if self.hidden_neurons is None:
-            self.hidden_neurons = [64, 32, 32, 64]
-
-        # Verify the network design is valid
-        if not self.hidden_neurons == self.hidden_neurons[::-1]:
-            raise ValueError(self.hidden_neurons, "Hidden units should be symmetric")
-
-        self.hidden_neurons_ = self.hidden_neurons
+        self.encoder_ = None
+        self.decoder_ = None
 
     def _build_model(self):
-        model = Sequential()
-        # Input layer
-        model.add(Dense(
-            self.hidden_neurons_[0], activation=self.hidden_activation,
-            input_shape=(self.n_features_,),
-            activity_regularizer=l2(self.l2_regularizer)))
-        model.add(Dropout(self.dropout_rate))
+        inputs = Input(shape=(self.n_features_,))
+        encoded_intermediate = Dense(self.intermediate_dim, activation=self.hidden_activation)(inputs)
+        encoded_intermediate = Dropout(0.2)(encoded_intermediate)
+        encoded_latent = Dense(self.latent_dim, activation=self.hidden_activation)(encoded_intermediate)
 
-        # Additional layers
-        for i, hidden_neurons in enumerate(self.hidden_neurons_, 1):
-            model.add(Dense(
-                hidden_neurons,
-                activation=self.hidden_activation,
-                activity_regularizer=l2(self.l2_regularizer)))
-            model.add(Dropout(self.dropout_rate))
+        decoder = Sequential([
+            Dense(self.intermediate_dim, input_dim=self.latent_dim, activation=self.hidden_activation),
+            Dropout(0.2),
+            Dense(self.n_features_, activation=self.output_activation)
+        ])
 
-        # Output layers
-        model.add(Dense(self.n_features_, activation=self.output_activation,
-                        activity_regularizer=l2(self.l2_regularizer)))
+        outputs = decoder(encoded_latent)
 
-        # Compile model
+        self.encoder_ = Model(inputs, encoded_latent)
+        self.decoder_ = decoder
+
+        model = Model(inputs, outputs)
         model.compile(loss=self.loss, optimizer=self.optimizer)
+
+        print(model.summary())
+
         return model
 
     def _build_and_fit_model(self, X, y=None):
-        # Validate and complete the number of hidden neurons
-        if np.min(self.hidden_neurons) > self.n_features_:
-            raise ValueError("The number of neurons should not exceed "
-                             "the number of features")
-        self.hidden_neurons_.insert(0, self.n_features_)
+        if self.intermediate_dim > self.n_features_:
+            raise ValueError("The number of neurons should not exceed the number of features")
 
-        # Calculate the dimension of the encoding layer & compression rate
-        self.encoding_dim_ = np.median(self.hidden_neurons)
-        self.compression_rate_ = self.n_features_ // self.encoding_dim_
+        self.compression_rate_ = self.n_features_ // self.latent_dim
 
-        # Build AE model & fit with X
         self.model_ = self._build_model()
         self.history_ = self.model_.fit(X, X,
                                         epochs=self.epochs,
@@ -97,10 +75,7 @@ class AutoEncoder(BaseDetector):
                                         shuffle=True,
                                         validation_split=self.validation_size,
                                         verbose=self.verbose).history
-        # Reverse the operation for consistency
-        self.hidden_neurons_.pop(0)
-        # Predict on X itself and calculate the reconstruction error as
-        # the outlier scores. Noted X_norm was shuffled has to recreate
+
         if self.preprocessing:
             X_norm = self.scaler_.transform(X)
         else:
@@ -113,20 +88,6 @@ class AutoEncoder(BaseDetector):
 
     @only_fitted(['model_', 'history_'])
     def decision_function(self, X):
-        """Predict raw anomaly score of X using the fitted detector.
-        The anomaly score of an input sample is computed based on different
-        detector algorithms. For consistency, outliers are assigned with
-        larger anomaly scores.
-        Parameters
-        ----------
-        X : numpy array of shape (n_samples, n_features)
-            The training input samples. Sparse matrices are accepted only
-            if they are supported by the base estimator.
-        Returns
-        -------
-        anomaly_scores : numpy array of shape (n_samples,)
-            The anomaly score of the input samples.
-        """
         X = check_array(X)
 
         if self.preprocessing:
