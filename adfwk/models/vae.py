@@ -11,7 +11,7 @@ from sklearn.utils import check_array
 
 from adfwk.models.base import BaseDetector
 from adfwk.models.layers.kldivergence import KLDivergenceLayer
-from adfwk.utils.stats_models import pairwise_distances, nll
+from adfwk.utils.stats_models import pairwise_distances
 from adfwk.utils.decorators import only_fitted
 
 
@@ -59,6 +59,9 @@ class VariationalAutoEncoder(BaseDetector):
         ])
 
         x_pred = decoder(z)
+
+        def nll(y_true, y_pred):
+            return K.sum(K.binary_crossentropy(y_true, y_pred), axis=-1)
 
         vae = Model(inputs=[x, eps], outputs=x_pred, name='vae')
         vae.compile(optimizer=self.optimizer, loss=nll)

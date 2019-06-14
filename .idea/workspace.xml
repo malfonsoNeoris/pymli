@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="241db7b8-4276-46c5-9ead-c85b103694cf" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/test_ae.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/adfwk.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/adfwk.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adfwk/visualization/graphs.py" beforeDir="false" afterPath="$PROJECT_DIR$/adfwk/visualization/graphs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_vae.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_vae.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adfwk/models/ae.py" beforeDir="false" afterPath="$PROJECT_DIR$/adfwk/models/ae.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adfwk/models/vae.py" beforeDir="false" afterPath="$PROJECT_DIR$/adfwk/models/vae.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adfwk/utils/stats_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/adfwk/utils/stats_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,10 +23,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/adfwk/models/vae.py">
+        <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2142">
-              <caret line="140" selection-start-line="140" selection-end-line="140" />
+            <state relative-caret-position="238">
+              <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -35,32 +37,53 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test_vae.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="43" column="14" lean-forward="true" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-290">
+              <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test_ae.py">
+        <entry file="file://$PROJECT_DIR$/adfwk/models/base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="45" column="36" lean-forward="true" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+            <state relative-caret-position="883">
+              <caret line="108" column="49" selection-start-line="108" selection-start-column="49" selection-end-line="108" selection-end-column="49" />
               <folding>
-                <element signature="e#0#51#0" expanded="true" />
+                <element signature="e#0#10#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/adfwk/visualization/graphs.py">
+        <entry file="file://$PROJECT_DIR$/adfwk/models/ae.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="41" column="9" lean-forward="true" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+            <state relative-caret-position="169">
+              <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/adfwk/models/vae.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/adfwk/utils/stats_models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="18" selection-start-column="18" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -111,18 +134,18 @@
         <option value="$PROJECT_DIR$/h5test.py" />
         <option value="$PROJECT_DIR$/data/models/vae/architecture.json" />
         <option value="$PROJECT_DIR$/data/models/vae/architecture_.json" />
-        <option value="$PROJECT_DIR$/adfwk/utils/stats_models.py" />
         <option value="$PROJECT_DIR$/adfwk/models/layers/kldivergence.py" />
-        <option value="$PROJECT_DIR$/adfwk/models/ae.py" />
         <option value="$PROJECT_DIR$/adfwk/models/iforest.py" />
         <option value="$PROJECT_DIR$/adfwk/test_vae.py" />
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/adfwk/models/base.py" />
         <option value="$PROJECT_DIR$/adfwk/models/mixins.py" />
-        <option value="$PROJECT_DIR$/adfwk/models/vae.py" />
-        <option value="$PROJECT_DIR$/test_vae.py" />
         <option value="$PROJECT_DIR$/test_ae.py" />
         <option value="$PROJECT_DIR$/adfwk/visualization/graphs.py" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/test_vae.py" />
+        <option value="$PROJECT_DIR$/adfwk/utils/stats_models.py" />
+        <option value="$PROJECT_DIR$/adfwk/models/vae.py" />
+        <option value="$PROJECT_DIR$/adfwk/models/ae.py" />
       </list>
     </option>
   </component>
@@ -149,6 +172,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -165,13 +189,18 @@
               <item name="adfwk" type="b2602c69:ProjectViewProjectNode" />
               <item name="adfwk" type="462c0819:PsiDirectoryNode" />
               <item name="adfwk" type="462c0819:PsiDirectoryNode" />
-              <item name="visualization" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="adfwk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="adfwk" type="462c0819:PsiDirectoryNode" />
+              <item name="adfwk" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -188,6 +217,7 @@
       <recent name="C:\Users\Lianz\PycharmProjects\adfwk\models" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\franco.lianza\Documents\GitHub\adfwk\data" />
       <recent name="C:\Users\Lianz\PycharmProjects\adfwk" />
       <recent name="C:\Users\Lianz\PycharmProjects\adfwk\adfwk" />
       <recent name="C:\Users\Lianz\PycharmProjects\adfwk\models" />
@@ -205,7 +235,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_vae">
+  <component name="RunManager" selected="Python.test_ae">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="adfwk" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -298,6 +328,9 @@
       <module name="adfwk" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="C:\Users\franco.lianza\AppData\Local\Continuum\anaconda3\envs\adfwk\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
@@ -335,8 +368,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16592261" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16517857" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -376,11 +410,6 @@
           <url>file://$USER_HOME$/Anaconda3/envs/adfwk/Lib/site-packages/keras/engine/training_utils.py</url>
           <line>94</line>
           <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test.py</url>
-          <line>39</line>
-          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -466,66 +495,18 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Anaconda3/envs/adfwk/Lib/site-packages/scipy/stats/_distn_infrastructure.py" />
-    <entry file="file://$PROJECT_DIR$/adfwk/models/ae.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-990">
-          <caret line="20" column="77" selection-start-line="20" selection-start-column="77" selection-end-line="20" selection-end-column="77" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/envs/adfwk/Lib/site-packages/numpy/lib/function_base.py" />
     <entry file="file://$USER_HOME$/Anaconda3/envs/adfwk/Lib/site-packages/numpy/lib/shape_base.py" />
     <entry file="file://$PROJECT_DIR$/data/models/ae/architecture.json" />
     <entry file="file://$PROJECT_DIR$/data/models/ae/model.svg" />
-    <entry file="file://$PROJECT_DIR$/adfwk/models/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adfwk/utils/stats_models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/models/vae/decoder_.svg" />
     <entry file="file://$PROJECT_DIR$/data/models/vae/encoder_.svg" />
     <entry file="file://$PROJECT_DIR$/data/models/vae/model.svg" />
     <entry file="file://$PROJECT_DIR$/data/models/vae/architecture.json" />
-    <entry file="file://$PROJECT_DIR$/adfwk/models/vae.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2142">
-          <caret line="140" selection-start-line="140" selection-end-line="140" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/adfwk/utils/decorators.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adfwk/models/mixins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -536,22 +517,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_vae.py">
+    <entry file="file://$PROJECT_DIR$/test_ae.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="43" column="14" lean-forward="true" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
+        <state relative-caret-position="271">
+          <caret line="38" column="49" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_ae.py">
+    <entry file="file://$PROJECT_DIR$/adfwk/models/mixins.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="45" column="36" lean-forward="true" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+        <state relative-caret-position="84">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
           <folding>
-            <element signature="e#0#51#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adfwk/utils/stats_models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="18" selection-start-column="18" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adfwk/models/vae.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_vae.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-290">
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adfwk/models/ae.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adfwk/models/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="883">
+          <caret line="108" column="49" selection-start-line="108" selection-start-column="49" selection-end-line="108" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>

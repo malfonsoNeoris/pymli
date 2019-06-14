@@ -1,6 +1,6 @@
 import numpy as np
-import keras.backend as K
 from sklearn.utils.validation import check_array
+from numba import njit
 
 
 def pairwise_distances(X, Y):
@@ -11,13 +11,10 @@ def pairwise_distances(X, Y):
         raise ValueError(
             "pairwise_distances function receive matrix with different shapes {0} and {1}".format(X.shape, Y.shape))
 
+    return _pairwise_distances(X, Y)
+
+
+@njit
+def _pairwise_distances(X, Y):
     euclidean_sq = np.square(Y - X)
     return np.sqrt(np.sum(euclidean_sq, axis=1)).ravel()
-
-
-def nll(y_true, y_pred):
-    """ Negative log likelihood (Bernoulli). """
-
-    # keras.losses.binary_crossentropy gives the mean
-    # over the last axis. we require the sum
-    return K.sum(K.binary_crossentropy(y_true, y_pred), axis=-1)

@@ -7,7 +7,7 @@ from adfwk.models.vae import VariationalAutoEncoder
 train = np.array([[0, 0, 0], [0, 1, 1], [1, 0, 1], [1, 1, 0]])
 test = np.array([[1, 0, 1]])
 
-ae = AutoEncoder(hidden_neurons=[2, 1, 1, 2], verbose=0)
+ae = AutoEncoder(intermediate_dim=2, latent_dim=1, verbose=0)
 ae.fit(train)
 print(ae.predict(test))
 print(ae.predict_proba(test))
