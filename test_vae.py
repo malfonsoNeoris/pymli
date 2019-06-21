@@ -12,13 +12,14 @@ original_dim = 784
 intermediate_dim = 256
 latent_dim = 2
 batch_size = 128
-epochs = 10
+epochs = 5
 
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
 x_train = x_train.reshape(-1, original_dim) / 255.
 x_test = x_test.reshape(-1, original_dim) / 255.
 
-vae = VariationalAutoEncoder(intermediate_dim=intermediate_dim, latent_dim=latent_dim, epochs=epochs)
+vae = VariationalAutoEncoder(intermediate_dim=intermediate_dim, latent_dim=latent_dim,
+                             epochs=epochs, batch_size=batch_size)
 vae.fit(x_train)
 
 n = 15

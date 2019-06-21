@@ -98,7 +98,8 @@ class VariationalAutoEncoder(BaseDetector):
         else:
             X_norm = np.copy(X)
 
-        pred_scores = self.decoder_.predict(self.encoder_.predict(X_norm))
+        pred_scores = self.decoder_.predict(self.encoder_.predict(X_norm, batch_size=self.batch_size),
+                                            batch_size=self.batch_size)
         return pairwise_distances(X_norm, pred_scores)
 
     @only_fitted(['model_', 'history_'])

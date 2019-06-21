@@ -42,12 +42,12 @@ class AutoEncoder(BaseDetector):
     def _build_model(self):
         inputs = Input(shape=(self.n_features_,))
         encoded_intermediate = Dense(self.intermediate_dim, activation=self.hidden_activation)(inputs)
-        encoded_intermediate = Dropout(0.2)(encoded_intermediate)
+        encoded_intermediate = Dropout(self.dropout_rate)(encoded_intermediate)
         encoded_latent = Dense(self.latent_dim, activation=self.hidden_activation)(encoded_intermediate)
 
         decoder = Sequential([
             Dense(self.intermediate_dim, input_dim=self.latent_dim, activation=self.hidden_activation),
-            Dropout(0.2),
+            Dropout(self.dropout_rate),
             Dense(self.n_features_, activation=self.output_activation)
         ])
 
@@ -59,7 +59,8 @@ class AutoEncoder(BaseDetector):
         model = Model(inputs, outputs)
         model.compile(loss=self.loss, optimizer=self.optimizer)
 
-        print(model.summary())
+        if self.verbose != 0:
+            print(model.summary())
 
         return model
 
@@ -96,7 +97,7 @@ class AutoEncoder(BaseDetector):
         else:
             X_norm = np.copy(X)
 
-        pred_scores = self.model_.predict(X_norm)
+        pred_scores = self.model_.predict(X_norm, batch_size=self.batch_size)
         return pairwise_distances(X_norm, pred_scores)
 
     @only_fitted(['model_', 'history_'])
