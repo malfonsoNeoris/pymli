@@ -1,9 +1,9 @@
+from sklearn.ensemble import IsolationForest as SKIsolationForest
+
 from .base import BaseDetector
 from .mixins import SKlearnSaveModelMixin
-from ..utils.decorators import only_fitted
 from ..utils.utility import invert_order
-
-from sklearn.ensemble import IsolationForest as SKIsolationForest
+from ..utils.decorators import only_fitted
 
 
 class IsolationForest(BaseDetector, SKlearnSaveModelMixin):
@@ -42,9 +42,9 @@ class IsolationForest(BaseDetector, SKlearnSaveModelMixin):
     def _build_and_fit_model(self, X, y=None):
         self.model_ = self._build_model()
         self.history_ = self.model_.fit(X=X, y=y)
-        self.decision_scores_ = self.decision_function(X)
+        self.decision_scores_ = self._decision_function(X)
         return self
 
     @only_fitted(['model_', 'history_'])
-    def decision_function(self, X):
+    def _decision_function(self, X):
         return invert_order(self.model_.decision_function(X))

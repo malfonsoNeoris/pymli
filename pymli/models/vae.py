@@ -1,13 +1,11 @@
 import pickle
-import numpy as np
 import keras.backend as K
-from keras import Sequential
 
+from keras import Sequential
 from keras.layers import Input, Dense, Lambda, Multiply, Add
 from keras.models import Model, model_from_json
 from keras.utils.vis_utils import plot_model
-
-from sklearn.utils import check_array
+from keras.regularizers import l2
 
 from .base import BaseDetector
 from .layers.kldivergence import KLDivergenceLayer
@@ -18,7 +16,7 @@ from ..utils.decorators import only_fitted
 class VariationalAutoEncoder(BaseDetector):
     def __init__(self, intermediate_dim=64, latent_dim=32,
                  hidden_activation='relu', output_activation='sigmoid',
-                 optimizer='rmsprop',
+                 l2_regularizer=0.1, optimizer='rmsprop',
                  epochs=100, batch_size=32,
                  validation_size=0.1, preprocessing=False,
                  verbose=1, contamination=0.1, random_state=None):
@@ -29,6 +27,7 @@ class VariationalAutoEncoder(BaseDetector):
         self.latent_dim = latent_dim
         self.hidden_activation = hidden_activation
         self.output_activation = output_activation
+        self.l2_regularizer = l2_regularizer
         self.optimizer = optimizer
         self.epochs = epochs
         self.batch_size = batch_size
@@ -41,10 +40,12 @@ class VariationalAutoEncoder(BaseDetector):
 
     def _build_model(self):
         x = Input(shape=(self.n_features_,))
-        h = Dense(self.intermediate_dim, activation=self.hidden_activation)(x)
+        h = Dense(self.intermediate_dim,
+                  activation=self.hidden_activation,
+                  activity_regularizer=l2(self.l2_regularizer))(x)
 
-        z_mu = Dense(self.latent_dim)(h)
-        z_log_var = Dense(self.latent_dim)(h)
+        z_mu = Dense(self.latent_dim, activity_regularizer=l2(self.l2_regularizer))(h)
+        z_log_var = Dense(self.latent_dim, activity_regularizer=l2(self.l2_regularizer))(h)
 
         z_mu, z_log_var = KLDivergenceLayer()([z_mu, z_log_var])
         z_sigma = Lambda(lambda t: K.exp(.5 * t))(z_log_var)
@@ -54,8 +55,13 @@ class VariationalAutoEncoder(BaseDetector):
         z = Add()([z_mu, z_eps])
 
         decoder = Sequential([
-            Dense(self.intermediate_dim, input_dim=self.latent_dim, activation=self.hidden_activation),
-            Dense(self.n_features_, activation=self.output_activation)
+            Dense(self.intermediate_dim,
+                  input_dim=self.latent_dim,
+                  activation=self.hidden_activation,
+                  activity_regularizer=l2(self.l2_regularizer)),
+            Dense(self.n_features_,
+                  activation=self.output_activation,
+                  activity_regularizer=l2(self.l2_regularizer))
         ])
 
         x_pred = decoder(z)
@@ -66,7 +72,7 @@ class VariationalAutoEncoder(BaseDetector):
         vae = Model(inputs=[x, eps], outputs=x_pred, name='vae')
         vae.compile(optimizer=self.optimizer, loss=nll)
 
-        if self.verbose != 0:
+        if self.verbose > 0:
             print(vae.summary())
 
         self.decoder_ = decoder
@@ -82,25 +88,17 @@ class VariationalAutoEncoder(BaseDetector):
         self.history_ = self.model_.fit(X, X,
                                         epochs=self.epochs,
                                         batch_size=self.batch_size,
-                                        shuffle=True,
                                         validation_split=self.validation_size,
                                         verbose=self.verbose).history
 
-        self.decision_scores_ = self.decision_function(X)
+        self.decision_scores_ = self._decision_function(X)
         return self
 
     @only_fitted(['model_', 'history_'])
-    def decision_function(self, X):
-        X = check_array(X)
-
-        if self.preprocessing:
-            X_norm = self.scaler_.transform(X)
-        else:
-            X_norm = np.copy(X)
-
-        pred_scores = self.decoder_.predict(self.encoder_.predict(X_norm, batch_size=self.batch_size),
+    def _decision_function(self, X):
+        pred_scores = self.decoder_.predict(self.encoder_.predict(X, batch_size=self.batch_size),
                                             batch_size=self.batch_size)
-        return pairwise_distances(X_norm, pred_scores)
+        return pairwise_distances(X, pred_scores)
 
     @only_fitted(['model_', 'history_'])
     def save(self, path):

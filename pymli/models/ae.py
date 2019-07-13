@@ -1,11 +1,9 @@
-import numpy as np
 from keras import Input, Model
 
 from keras.models import Sequential, model_from_json
 from keras.utils.vis_utils import plot_model
 from keras.layers import Dense, Dropout
-
-from sklearn.utils import check_array
+from keras.regularizers import l2
 
 from .base import BaseDetector
 from ..utils.stats_models import pairwise_distances
@@ -41,26 +39,35 @@ class AutoEncoder(BaseDetector):
 
     def _build_model(self):
         inputs = Input(shape=(self.n_features_,))
-        encoded_intermediate = Dense(self.intermediate_dim, activation=self.hidden_activation)(inputs)
+        encoded_intermediate = Dense(self.intermediate_dim,
+                                     activation=self.hidden_activation,
+                                     activity_regularizer=l2(self.l2_regularizer))(inputs)
         encoded_intermediate = Dropout(self.dropout_rate)(encoded_intermediate)
-        encoded_latent = Dense(self.latent_dim, activation=self.hidden_activation)(encoded_intermediate)
+        encoded_latent = Dense(self.latent_dim,
+                               activation=self.hidden_activation,
+                               activity_regularizer=l2(self.l2_regularizer))(encoded_intermediate)
 
         decoder = Sequential([
-            Dense(self.intermediate_dim, input_dim=self.latent_dim, activation=self.hidden_activation),
+            Dense(self.intermediate_dim,
+                  input_dim=self.latent_dim,
+                  activation=self.hidden_activation,
+                  activity_regularizer=l2(self.l2_regularizer)),
             Dropout(self.dropout_rate),
-            Dense(self.n_features_, activation=self.output_activation)
+            Dense(self.n_features_,
+                  activation=self.output_activation,
+                  activity_regularizer=l2(self.l2_regularizer))
         ])
 
         outputs = decoder(encoded_latent)
 
-        self.encoder_ = Model(inputs, encoded_latent)
-        self.decoder_ = decoder
-
         model = Model(inputs, outputs)
         model.compile(loss=self.loss, optimizer=self.optimizer)
 
-        if self.verbose != 0:
+        if self.verbose > 0:
             print(model.summary())
+
+        self.decoder_ = decoder
+        self.encoder_ = Model(inputs, encoded_latent)
 
         return model
 
@@ -74,31 +81,17 @@ class AutoEncoder(BaseDetector):
         self.history_ = self.model_.fit(X, X,
                                         epochs=self.epochs,
                                         batch_size=self.batch_size,
-                                        shuffle=True,
                                         validation_split=self.validation_size,
                                         verbose=self.verbose).history
 
-        if self.preprocessing:
-            X_norm = self.scaler_.transform(X)
-        else:
-            X_norm = np.copy(X)
-
-        pred_scores = self.model_.predict(X_norm)
-        self.decision_scores_ = pairwise_distances(X_norm, pred_scores)
+        self.decision_scores_ = self._decision_function(X)
 
         return self
 
     @only_fitted(['model_', 'history_'])
-    def decision_function(self, X):
-        X = check_array(X)
-
-        if self.preprocessing:
-            X_norm = self.scaler_.transform(X)
-        else:
-            X_norm = np.copy(X)
-
-        pred_scores = self.model_.predict(X_norm, batch_size=self.batch_size)
-        return pairwise_distances(X_norm, pred_scores)
+    def _decision_function(self, X):
+        pred_scores = self.model_.predict(X, batch_size=self.batch_size)
+        return pairwise_distances(X, pred_scores)
 
     @only_fitted(['model_', 'history_'])
     def save_model(self, path):

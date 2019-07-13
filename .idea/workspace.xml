@@ -5,18 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="241db7b8-4276-46c5-9ead-c85b103694cf" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/pymli/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pymli/models/layers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pymli/preprocessing/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pymli/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pymli/visualization/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pymli/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pymli/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pymli/models/ae.py" beforeDir="false" afterPath="$PROJECT_DIR$/pymli/models/ae.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pymli/models/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/pymli/models/base.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pymli/models/iforest.py" beforeDir="false" afterPath="$PROJECT_DIR$/pymli/models/iforest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pymli/models/knn.py" beforeDir="false" afterPath="$PROJECT_DIR$/pymli/models/knn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pymli/models/mixins.py" beforeDir="false" afterPath="$PROJECT_DIR$/pymli/models/mixins.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pymli/models/vae.py" beforeDir="false" afterPath="$PROJECT_DIR$/pymli/models/vae.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,25 +26,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pymli/visualization/__init__.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pymli/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="255">
+              <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -59,10 +35,27 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pymli/models/ae.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="322">
+              <caret line="90" column="40" selection-start-line="90" selection-start-column="40" selection-end-line="90" selection-end-column="40" />
               <folding>
-                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#0#30#0" expanded="true" />
+                <element signature="e#3934#4711#0" />
+                <element signature="e#4753#5291#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pymli/models/vae.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="96" column="40" selection-start-line="96" selection-start-column="40" selection-end-line="96" selection-end-column="40" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#3975#4386#0" />
+                <element signature="e#4469#5246#0" />
+                <element signature="e#5288#5940#0" />
               </folding>
             </state>
           </provider>
@@ -71,31 +64,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pymli/models/knn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pymli/models/mixins.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pymli/models/layers/__init__.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pymli/models/base.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+            <state relative-caret-position="-1">
+              <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -103,15 +76,25 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pymli/models/iforest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+            <state relative-caret-position="799">
+              <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
+              <folding>
+                <element signature="e#0#65#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pymli/models/__init__.py">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/pymli/models/base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-596">
+              <caret line="77" column="41" selection-start-line="77" selection-start-column="41" selection-end-line="77" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -174,25 +157,26 @@
         <option value="$PROJECT_DIR$/adfwk/models/mixins.py" />
         <option value="$PROJECT_DIR$/test_ae.py" />
         <option value="$PROJECT_DIR$/adfwk/visualization/graphs.py" />
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/adfwk/utils/stats_models.py" />
         <option value="$PROJECT_DIR$/adfwk/models/ae.py" />
         <option value="$PROJECT_DIR$/adfwk/models/vae.py" />
         <option value="$PROJECT_DIR$/adfwk/models/knn.py" />
         <option value="$PROJECT_DIR$/test_vae.py" />
         <option value="$PROJECT_DIR$/pymli/setup.py" />
-        <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/pymli/models/__init__.py" />
         <option value="$PROJECT_DIR$/pymli/preprocessing/__init__.py" />
         <option value="$PROJECT_DIR$/pymli/utils/__init__.py" />
         <option value="$PROJECT_DIR$/pymli/visualization/__init__.py" />
         <option value="$PROJECT_DIR$/pymli/__init__.py" />
-        <option value="$PROJECT_DIR$/pymli/models/base.py" />
-        <option value="$PROJECT_DIR$/pymli/models/iforest.py" />
-        <option value="$PROJECT_DIR$/pymli/models/ae.py" />
-        <option value="$PROJECT_DIR$/pymli/models/knn.py" />
         <option value="$PROJECT_DIR$/pymli/models/layers/__init__.py" />
         <option value="$PROJECT_DIR$/pymli/models/mixins.py" />
+        <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/pymli/models/base.py" />
+        <option value="$PROJECT_DIR$/pymli/models/ae.py" />
+        <option value="$PROJECT_DIR$/pymli/models/vae.py" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/pymli/models/knn.py" />
+        <option value="$PROJECT_DIR$/pymli/models/iforest.py" />
       </list>
     </option>
   </component>
@@ -237,31 +221,6 @@
               <item name="pymli" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="pymli" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pymli" type="462c0819:PsiDirectoryNode" />
-              <item name="pymli" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="layers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pymli" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pymli" type="462c0819:PsiDirectoryNode" />
-              <item name="pymli" type="462c0819:PsiDirectoryNode" />
-              <item name="preprocessing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pymli" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pymli" type="462c0819:PsiDirectoryNode" />
-              <item name="pymli" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pymli" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pymli" type="462c0819:PsiDirectoryNode" />
-              <item name="pymli" type="462c0819:PsiDirectoryNode" />
-              <item name="visualization" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -302,7 +261,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_vae">
+  <component name="RunManager" selected="Python.test">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="pymli" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -538,7 +497,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.38852814" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.46536797" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.46481177" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -662,6 +621,11 @@
           <line>94</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test.py</url>
+          <line>10</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -702,8 +666,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Anaconda3/envs/adfwk/Lib/site-packages/scipy/special/basic.py" />
-    <entry file="file://$USER_HOME$/Anaconda3/envs/adfwk/Lib/site-packages/scipy/special/__init__.py" />
     <entry file="file://$PROJECT_DIR$/adfwk/preprocessing/label_binarizer.py" />
     <entry file="file://$PROJECT_DIR$/adfwk/utils/utility.py" />
     <entry file="file://$USER_HOME$/Anaconda3/envs/adfwk/Lib/site-packages/keras/utils/vis_utils.py" />
@@ -727,16 +689,6 @@
     <entry file="file://$PROJECT_DIR$/data/models/vae/architecture.json" />
     <entry file="file://$PROJECT_DIR$/adfwk/utils/decorators.py" />
     <entry file="file://$PROJECT_DIR$/adfwk/visualization/graphs.py" />
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/adfwk/utils/stats_models.py" />
     <entry file="file://$PROJECT_DIR$/adfwk/models/layers/kldivergence.py" />
     <entry file="file://$PROJECT_DIR$/adfwk/models/vae.py" />
@@ -779,16 +731,6 @@
     <entry file="file://$PROJECT_DIR$/pymli/utils/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pymli/visualization/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/pymli/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -799,37 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pymli/models/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pymli/models/iforest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pymli/models/ae.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pymli/models/knn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pymli/models/layers/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -837,6 +748,102 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pymli/visualization/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/keras/engine/training.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="1114" column="8" selection-start-line="1114" selection-start-column="8" selection-end-line="1114" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/keras/layers/core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="830" column="8" selection-start-line="830" selection-start-column="8" selection-end-line="830" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pymli/models/ae.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="90" column="40" selection-start-line="90" selection-start-column="40" selection-end-line="90" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+            <element signature="e#3934#4711#0" />
+            <element signature="e#4753#5291#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pymli/utils/decorators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pymli/models/knn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1">
+          <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pymli/models/iforest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pymli/models/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-596">
+          <caret line="77" column="41" selection-start-line="77" selection-start-column="41" selection-end-line="77" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="9" column="60" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pymli/models/vae.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="96" column="40" selection-start-line="96" selection-start-column="40" selection-end-line="96" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#3975#4386#0" />
+            <element signature="e#4469#5246#0" />
+            <element signature="e#5288#5940#0" />
+          </folding>
         </state>
       </provider>
     </entry>

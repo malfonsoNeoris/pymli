@@ -39,11 +39,11 @@ class KNN(BaseDetector, SKlearnSaveModelMixin):
     def _build_and_fit_model(self, X, y=None):
         self.model_ = self._build_model()
         self.history_ = self.model_.fit(X=X, y=y)
-        self.decision_scores_ = self.decision_function(X)
+        self.decision_scores_ = self._decision_function(X)
         return self
 
     @only_fitted(['model_', 'history_'])
-    def decision_function(self, X):
+    def _decision_function(self, X):
         dist_array, _ = self.model_.kneighbors(X=X,
                                                n_neighbors=self.n_neighbors,
                                                return_distance=True)

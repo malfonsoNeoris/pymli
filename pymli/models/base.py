@@ -61,8 +61,19 @@ class BaseDetector(abc.ABC):
         return self
 
     @abc.abstractmethod
-    def decision_function(self, X):
+    def _decision_function(self, X):
         pass
+
+    @only_fitted(['model_', 'history_'])
+    def decision_function(self, X):
+        X = check_array(X)
+
+        if self.preprocessing:
+            X_norm = self.scaler_.transform(X)
+        else:
+            X_norm = np.copy(X)
+
+        return self._decision_function(X_norm)
 
     @only_fitted(['decision_scores_', 'threshold_', 'labels_'])
     def predict(self, X):
