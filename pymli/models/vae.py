@@ -9,10 +9,10 @@ from keras.utils.vis_utils import plot_model
 
 from sklearn.utils import check_array
 
-from pymli.models.base import BaseDetector
-from pymli.models.layers.kldivergence import KLDivergenceLayer
-from pymli.utils.stats_models import pairwise_distances
-from pymli.utils.decorators import only_fitted
+from .base import BaseDetector
+from .layers.kldivergence import KLDivergenceLayer
+from ..utils.stats_models import pairwise_distances
+from ..utils.decorators import only_fitted
 
 
 class VariationalAutoEncoder(BaseDetector):

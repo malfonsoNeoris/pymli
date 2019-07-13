@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="pymli-flianza",
-    version="0.0.1",
+    name="pymli",
+    version="0.0.3",
     author="Franco Lianza",
     author_email="lianza.fl@gmail.com",
     description="A Python Machine Learning Library",

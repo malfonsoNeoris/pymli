@@ -1,7 +1,7 @@
-from pymli.models.base import BaseDetector
-from pymli.models.mixins import SKlearnSaveModelMixin
-from pymli.utils.decorators import only_fitted
-from pymli.utils.utility import invert_order
+from .base import BaseDetector
+from .mixins import SKlearnSaveModelMixin
+from ..utils.decorators import only_fitted
+from ..utils.utility import invert_order
 
 from sklearn.ensemble import IsolationForest as SKIsolationForest
 

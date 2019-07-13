@@ -7,9 +7,9 @@ from keras.layers import Dense, Dropout
 
 from sklearn.utils import check_array
 
-from pymli.models.base import BaseDetector
-from pymli.utils.stats_models import pairwise_distances
-from pymli.utils.decorators import only_fitted
+from .base import BaseDetector
+from ..utils.stats_models import pairwise_distances
+from ..utils.decorators import only_fitted
 
 
 class AutoEncoder(BaseDetector):
