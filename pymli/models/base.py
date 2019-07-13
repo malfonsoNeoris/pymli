@@ -9,7 +9,7 @@ from sklearn.utils.multiclass import check_classification_targets
 from sklearn.utils import check_array
 from sklearn.preprocessing import StandardScaler
 
-from adfwk.utils.decorators import only_fitted
+from pymli.utils.decorators import only_fitted
 
 
 class BaseDetector(abc.ABC):

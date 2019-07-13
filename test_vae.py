@@ -1,5 +1,5 @@
-from adfwk.models.vae import VariationalAutoEncoder
-from adfwk.visualization.graphs import scatter2d
+from pymli.models.vae import VariationalAutoEncoder
+from pymli.visualization.graphs import scatter2d
 
 import matplotlib.pyplot as plt
 from keras.datasets import mnist

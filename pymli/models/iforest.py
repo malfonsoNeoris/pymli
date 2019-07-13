@@ -1,7 +1,7 @@
-from adfwk.models.base import BaseDetector
-from adfwk.models.mixins import SKlearnSaveModelMixin
-from adfwk.utils.decorators import only_fitted
-from adfwk.utils.utility import invert_order
+from pymli.models.base import BaseDetector
+from pymli.models.mixins import SKlearnSaveModelMixin
+from pymli.utils.decorators import only_fitted
+from pymli.utils.utility import invert_order
 
 from sklearn.ensemble import IsolationForest as SKIsolationForest
 

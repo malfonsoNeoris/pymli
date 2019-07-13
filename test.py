@@ -1,8 +1,8 @@
 import numpy as np
 
-from adfwk.models.ae import AutoEncoder
-from adfwk.models.iforest import IsolationForest
-from adfwk.models.vae import VariationalAutoEncoder
+from pymli.models.ae import AutoEncoder
+from pymli.models.iforest import IsolationForest
+from pymli.models.vae import VariationalAutoEncoder
 
 train = np.array([[0, 0, 0], [0, 1, 1], [1, 0, 1], [1, 1, 0]])
 test = np.array([[1, 0, 1]])

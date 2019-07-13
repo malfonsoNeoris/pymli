@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/adfwk.iml" filepath="$PROJECT_DIR$/.idea/adfwk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/pymli.iml" filepath="$PROJECT_DIR$/.idea/pymli.iml" />
     </modules>
   </component>
 </project>

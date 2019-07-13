@@ -5,8 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="241db7b8-4276-46c5-9ead-c85b103694cf" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pymli/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/adfwk.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pymli.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adfwk/models/ae.py" beforeDir="false" afterPath="$PROJECT_DIR$/adfwk/models/ae.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adfwk/models/ae.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adfwk/models/base.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adfwk/models/iforest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adfwk/models/knn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adfwk/models/layers/kldivergence.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adfwk/models/mixins.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adfwk/models/vae.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adfwk/preprocessing/label_binarizer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adfwk/utils/decorators.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adfwk/utils/stats_models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adfwk/utils/utility.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adfwk/visualization/graphs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_ae.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_ae.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_vae.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_vae.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,75 +38,21 @@
     <SUITE FILE_PATH="coverage/adfwk$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1560294821172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test.py">
+        <entry file="file://$PROJECT_DIR$/pymli/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test_vae.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="39" column="47" lean-forward="true" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/adfwk/models/base.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="68" column="34" lean-forward="true" selection-start-line="68" selection-start-column="34" selection-end-line="68" selection-end-column="34" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
+            <state>
+              <caret column="14" selection-start-column="14" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/adfwk/models/ae.py">
+        <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="61" column="26" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-                <element signature="e#3532#3781#0" />
-                <element signature="e#3864#4641#0" />
-                <element signature="e#4683#5221#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/adfwk/models/vae.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-731">
-              <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="7" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/adfwk/utils/stats_models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="340">
+              <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -114,7 +79,12 @@
       <find>erf(</find>
       <find>predic</find>
       <find>dropout_rate</find>
+      <find>process</find>
+      <find>adfwk</find>
     </findStrings>
+    <replaceStrings>
+      <replace>pymli</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -148,10 +118,14 @@
         <option value="$PROJECT_DIR$/test_ae.py" />
         <option value="$PROJECT_DIR$/adfwk/visualization/graphs.py" />
         <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/adfwk/models/vae.py" />
         <option value="$PROJECT_DIR$/adfwk/utils/stats_models.py" />
-        <option value="$PROJECT_DIR$/test_vae.py" />
         <option value="$PROJECT_DIR$/adfwk/models/ae.py" />
+        <option value="$PROJECT_DIR$/adfwk/models/vae.py" />
+        <option value="$PROJECT_DIR$/adfwk/models/knn.py" />
+        <option value="$PROJECT_DIR$/test_vae.py" />
+        <option value="$PROJECT_DIR$/pymli/__init__.py" />
+        <option value="$PROJECT_DIR$/pymli/setup.py" />
+        <option value="$PROJECT_DIR$/setup.py" />
       </list>
     </option>
   </component>
@@ -167,8 +141,8 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1386" />
-    <option name="height" value="788" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -178,54 +152,43 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="adfwk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="adfwk" type="462c0819:PsiDirectoryNode" />
+              <item name="pymli" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pymli" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="adfwk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="adfwk" type="462c0819:PsiDirectoryNode" />
-              <item name="adfwk" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="adfwk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="adfwk" type="462c0819:PsiDirectoryNode" />
-              <item name="adfwk" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="adfwk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="adfwk" type="462c0819:PsiDirectoryNode" />
-              <item name="adfwk" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="pymli" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pymli" type="462c0819:PsiDirectoryNode" />
+              <item name="pymli" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/test_vae.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\franco.lianza\Documents\GitHub\adfwk" />
-      <recent name="C:\Users\Lianz\PycharmProjects\adfwk\models" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\franco.lianza\Documents\GitHub\pymli" />
       <recent name="C:\Users\franco.lianza\Documents\GitHub\adfwk\data" />
       <recent name="C:\Users\Lianz\PycharmProjects\adfwk" />
       <recent name="C:\Users\Lianz\PycharmProjects\adfwk\adfwk" />
+      <recent name="C:\Users\Lianz\PycharmProjects\adfwk\models" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\franco.lianza\Documents\GitHub\adfwk" />
       <recent name="C:\Users\Lianz\PycharmProjects\adfwk\models" />
     </key>
   </component>
@@ -243,7 +206,7 @@
   </component>
   <component name="RunManager" selected="Python.test_vae">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="adfwk" />
+      <module name="pymli" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -265,7 +228,7 @@
       <method v="2" />
     </configuration>
     <configuration name="pydot" type="PythonConfigurationType" factoryName="Python">
-      <module name="adfwk" />
+      <module name="pymli" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -287,7 +250,7 @@
       <method v="2" />
     </configuration>
     <configuration name="test" type="PythonConfigurationType" factoryName="Python">
-      <module name="adfwk" />
+      <module name="pymli" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -309,7 +272,7 @@
       <method v="2" />
     </configuration>
     <configuration name="test_ae" type="PythonConfigurationType" factoryName="Python">
-      <module name="adfwk" />
+      <module name="pymli" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -331,7 +294,7 @@
       <method v="2" />
     </configuration>
     <configuration name="test_vae" type="PythonConfigurationType" factoryName="Python">
-      <module name="adfwk" />
+      <module name="pymli" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -352,6 +315,93 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="pymli" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <module name="pymli" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <module name="pymli" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Twisted Trial">
+      <module name="pymli" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <module name="pymli" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <module name="pymli" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.test" />
       <item itemvalue="Python.test_vae" />
@@ -370,13 +420,20 @@
       <option name="presentableId" value="Default" />
       <updated>1559492607701</updated>
     </task>
+    <task id="LOCAL-00001" summary="Se agrega modelo NearestNeighbors">
+      <created>1561327253095</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1561327253095</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.23219584" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23065476" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -387,11 +444,11 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32405892" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.5040917" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.42207792" />
-      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Messages" order="13" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -401,7 +458,7 @@
       <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="5" side_tool="true" weight="0.32995737" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23219584" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.4732143" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -412,7 +469,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32405892" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.5040917" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.42207792" />
@@ -428,6 +485,70 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Se agrega modelo NearestNeighbors" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se agrega modelo NearestNeighbors" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -484,20 +605,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/Anaconda3/envs/adfwk/Lib/site-packages/scipy/special/basic.py" />
     <entry file="file://$USER_HOME$/Anaconda3/envs/adfwk/Lib/site-packages/scipy/special/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/adfwk/preprocessing/label_binarizer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="26" lean-forward="true" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adfwk/utils/utility.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="16" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/adfwk/preprocessing/label_binarizer.py" />
+    <entry file="file://$PROJECT_DIR$/adfwk/utils/utility.py" />
     <entry file="file://$USER_HOME$/Anaconda3/envs/adfwk/Lib/site-packages/keras/utils/vis_utils.py" />
     <entry file="file://$USER_HOME$/Anaconda3/envs/adfwk/Lib/site-packages/pydot.py" />
     <entry file="file://$USER_HOME$/Anaconda3/envs/adfwk/Lib/codecs.py" />
@@ -508,23 +617,6 @@
     <entry file="file://$USER_HOME$/Anaconda3/envs/adfwk/Lib/site-packages/keras/datasets/mnist.py" />
     <entry file="file://$USER_HOME$/Anaconda3/envs/adfwk/Lib/site-packages/keras/backend/tensorflow_backend.py" />
     <entry file="file://$USER_HOME$/Anaconda3/envs/adfwk/Lib/site-packages/sklearn/utils/validation.py" />
-    <entry file="file://$PROJECT_DIR$/adfwk/models/layers/kldivergence.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="17" column="56" lean-forward="true" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adfwk/models/iforest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/envs/adfwk/Lib/site-packages/scipy/stats/_distn_infrastructure.py" />
     <entry file="file://$USER_HOME$/Anaconda3/envs/adfwk/Lib/site-packages/numpy/lib/function_base.py" />
     <entry file="file://$USER_HOME$/Anaconda3/envs/adfwk/Lib/site-packages/numpy/lib/shape_base.py" />
@@ -534,40 +626,8 @@
     <entry file="file://$PROJECT_DIR$/data/models/vae/encoder_.svg" />
     <entry file="file://$PROJECT_DIR$/data/models/vae/model.svg" />
     <entry file="file://$PROJECT_DIR$/data/models/vae/architecture.json" />
-    <entry file="file://$PROJECT_DIR$/adfwk/utils/decorators.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adfwk/visualization/graphs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="41" column="9" lean-forward="true" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_ae.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="38" column="49" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adfwk/models/mixins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/adfwk/utils/decorators.py" />
+    <entry file="file://$PROJECT_DIR$/adfwk/visualization/graphs.py" />
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -578,53 +638,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adfwk/utils/stats_models.py">
+    <entry file="file://$PROJECT_DIR$/adfwk/utils/stats_models.py" />
+    <entry file="file://$PROJECT_DIR$/adfwk/models/layers/kldivergence.py" />
+    <entry file="file://$PROJECT_DIR$/adfwk/models/vae.py" />
+    <entry file="file://$PROJECT_DIR$/adfwk/models/ae.py" />
+    <entry file="file://$PROJECT_DIR$/test_ae.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="578">
+          <caret line="41" column="26" lean-forward="true" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/adfwk/models/knn.py" />
+    <entry file="file://$PROJECT_DIR$/adfwk/models/iforest.py" />
+    <entry file="file://$PROJECT_DIR$/adfwk/models/mixins.py" />
+    <entry file="file://$PROJECT_DIR$/adfwk/models/base.py" />
     <entry file="file://$PROJECT_DIR$/test_vae.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="39" column="47" lean-forward="true" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
+        <state relative-caret-position="187">
+          <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adfwk/models/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="68" column="34" lean-forward="true" selection-start-line="68" selection-start-column="34" selection-end-line="68" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adfwk/models/vae.py">
+    <entry file="file://$PROJECT_DIR$/pymli/models/ae.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-731">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="7" selection-end-column="44" />
+        <state relative-caret-position="119">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adfwk/models/ae.py">
+    <entry file="file://$PROJECT_DIR$/pymli/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="61" column="26" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#3532#3781#0" />
-            <element signature="e#3864#4641#0" />
-            <element signature="e#4683#5221#0" />
-          </folding>
+        <state>
+          <caret column="14" selection-start-column="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
         </state>
       </provider>
     </entry>

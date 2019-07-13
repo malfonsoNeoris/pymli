@@ -1,9 +1,9 @@
 import numpy as np
 from sklearn.neighbors import NearestNeighbors
 
-from adfwk.models.base import BaseDetector
-from adfwk.models.mixins import SKlearnSaveModelMixin
-from adfwk.utils.decorators import only_fitted
+from pymli.models.base import BaseDetector
+from pymli.models.mixins import SKlearnSaveModelMixin
+from pymli.utils.decorators import only_fitted
 
 
 class KNN(BaseDetector, SKlearnSaveModelMixin):
