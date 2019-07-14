@@ -1,7 +1,9 @@
 import abc
 import pickle
 import numpy as np
+import shap
 
+from copy import copy
 from scipy import special
 
 from sklearn.preprocessing import MinMaxScaler
@@ -26,6 +28,8 @@ class BaseDetector(abc.ABC):
         self.scaler_ = None
         self.model_ = None
         self.history_ = None
+        self.explainer_ = None
+        self.shap_values_ = None
         self._mu = None
         self._sigma = None
 
@@ -38,14 +42,20 @@ class BaseDetector(abc.ABC):
                 pass
 
     @abc.abstractmethod
-    def _build_and_fit_model(self, X, y=None):
+    def _build_model(self):
+        pass
+
+    @abc.abstractmethod
+    def _fit_model(self, X, y=None):
         pass
 
     def fit(self, X, y=None):
         X = check_array(X)
+
         self._set_n_classes(y)
 
-        self.n_samples_, self.n_features_ = X.shape[0], X.shape[1]
+        self.n_samples_ = X.shape[0]
+        self.n_features_ = X.shape[1]
 
         if self.preprocessing:
             self.scaler_ = StandardScaler()
@@ -55,7 +65,10 @@ class BaseDetector(abc.ABC):
 
         np.random.shuffle(X_norm)
 
-        self._build_and_fit_model(X_norm, y)
+        self.model_ = self._build_model()
+        self.history_ = self._fit_model(X_norm, y)
+        self.decision_scores_ = self._decision_function(X_norm)
+
         self._process_decision_scores()
 
         return self
@@ -124,10 +137,13 @@ class BaseDetector(abc.ABC):
 
     @only_fitted(['model_', 'history_'])
     def save(self, path):
-        model_ = self.model_
+        explainer_ = copy(self.explainer_)
+        model_ = copy(self.model_)
+        self.explainer_ = None
         self.model_ = None
         with open(path + '/model.pkl', 'wb') as file:
             pickle.dump(self, file, pickle.HIGHEST_PROTOCOL)
+        self.explainer_ = explainer_
         self.model_ = model_
         self.save_model(path)
 
@@ -137,3 +153,17 @@ class BaseDetector(abc.ABC):
             model = pickle.load(file)
         model.load_model(path)
         return model
+
+    def explain(self, data_to_explain, background, f=None, nsamples=1000):
+        if f is None:
+            def f(x):
+                return self.decision_function(x)
+
+        self.explainer_ = shap.KernelExplainer(f, background)
+
+        self.shap_values_ = self.explainer_.shap_values(data_to_explain, nsamples=nsamples)
+        return shap.force_plot(self.explainer_.expected_value, self.shap_values_, data_to_explain)
+
+    @only_fitted(['explainer_', 'shap_values_'])
+    def explain_summary_plot(self, test_data):
+        return shap.summary_plot(self.shap_values_, test_data)

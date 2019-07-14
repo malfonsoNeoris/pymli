@@ -1,4 +1,4 @@
-from sklearn.ensemble import IsolationForest as SKIsolationForest
+from sklearn.ensemble import IsolationForest as SKLearnIsolationForest
 
 from .base import BaseDetector
 from .mixins import SKlearnSaveModelMixin
@@ -13,7 +13,7 @@ class IsolationForest(BaseDetector, SKlearnSaveModelMixin):
                  max_features=1.,
                  bootstrap=False,
                  n_jobs=1,
-                 behaviour='old',
+                 behaviour='new',
                  random_state=None,
                  preprocessing=False,
                  verbose=0):
@@ -29,21 +29,18 @@ class IsolationForest(BaseDetector, SKlearnSaveModelMixin):
         self.verbose = verbose
 
     def _build_model(self):
-        return SKIsolationForest(n_estimators=self.n_estimators,
-                                 max_samples=self.max_samples,
-                                 contamination=self.contamination,
-                                 max_features=self.max_features,
-                                 bootstrap=self.bootstrap,
-                                 n_jobs=self.n_jobs,
-                                 random_state=self.random_state,
-                                 verbose=self.verbose,
-                                 behaviour='new')
+        return SKLearnIsolationForest(n_estimators=self.n_estimators,
+                                      max_samples=self.max_samples,
+                                      contamination=self.contamination,
+                                      max_features=self.max_features,
+                                      bootstrap=self.bootstrap,
+                                      n_jobs=self.n_jobs,
+                                      random_state=self.random_state,
+                                      verbose=self.verbose,
+                                      behaviour=self.behaviour)
 
-    def _build_and_fit_model(self, X, y=None):
-        self.model_ = self._build_model()
-        self.history_ = self.model_.fit(X=X, y=y)
-        self.decision_scores_ = self._decision_function(X)
-        return self
+    def _fit_model(self, X, y=None):
+        return self.model_.fit(X=X, y=y)
 
     @only_fitted(['model_', 'history_'])
     def _decision_function(self, X):

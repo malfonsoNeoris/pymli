@@ -38,6 +38,9 @@ class AutoEncoder(BaseDetector):
         self.decoder_ = None
 
     def _build_model(self):
+        if self.intermediate_dim > self.n_features_:
+            raise ValueError("The number of neurons should not exceed the number of features")
+
         inputs = Input(shape=(self.n_features_,))
         encoded_intermediate = Dense(self.intermediate_dim,
                                      activation=self.hidden_activation,
@@ -71,22 +74,12 @@ class AutoEncoder(BaseDetector):
 
         return model
 
-    def _build_and_fit_model(self, X, y=None):
-        if self.intermediate_dim > self.n_features_:
-            raise ValueError("The number of neurons should not exceed the number of features")
-
-        self.compression_rate_ = self.n_features_ // self.latent_dim
-
-        self.model_ = self._build_model()
-        self.history_ = self.model_.fit(X, X,
-                                        epochs=self.epochs,
-                                        batch_size=self.batch_size,
-                                        validation_split=self.validation_size,
-                                        verbose=self.verbose).history
-
-        self.decision_scores_ = self._decision_function(X)
-
-        return self
+    def _fit_model(self, X, y=None):
+        return self.model_.fit(X, X,
+                               epochs=self.epochs,
+                               batch_size=self.batch_size,
+                               validation_split=self.validation_size,
+                               verbose=self.verbose).history
 
     @only_fitted(['model_', 'history_'])
     def _decision_function(self, X):

@@ -36,11 +36,8 @@ class KNN(BaseDetector, SKlearnSaveModelMixin):
                                 metric_params=self.metric_params,
                                 n_jobs=self.n_jobs)
 
-    def _build_and_fit_model(self, X, y=None):
-        self.model_ = self._build_model()
-        self.history_ = self.model_.fit(X=X, y=y)
-        self.decision_scores_ = self._decision_function(X)
-        return self
+    def _fit_model(self, X, y=None):
+        return self.model_.fit(X=X, y=y)
 
     @only_fitted(['model_', 'history_'])
     def _decision_function(self, X):

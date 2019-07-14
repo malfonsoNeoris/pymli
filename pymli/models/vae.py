@@ -39,6 +39,9 @@ class VariationalAutoEncoder(BaseDetector):
         self.decoder_ = None
 
     def _build_model(self):
+        if self.intermediate_dim > self.n_features_:
+            raise ValueError("The number of neurons should not exceed the number of features")
+
         x = Input(shape=(self.n_features_,))
         h = Dense(self.intermediate_dim,
                   activation=self.hidden_activation,
@@ -80,19 +83,12 @@ class VariationalAutoEncoder(BaseDetector):
 
         return vae
 
-    def _build_and_fit_model(self, X, y=None):
-        if self.intermediate_dim > self.n_features_:
-            raise ValueError("The number of neurons should not exceed the number of features")
-
-        self.model_ = self._build_model()
-        self.history_ = self.model_.fit(X, X,
-                                        epochs=self.epochs,
-                                        batch_size=self.batch_size,
-                                        validation_split=self.validation_size,
-                                        verbose=self.verbose).history
-
-        self.decision_scores_ = self._decision_function(X)
-        return self
+    def _fit_model(self, X, y=None):
+        return self.model_.fit(X, X,
+                               epochs=self.epochs,
+                               batch_size=self.batch_size,
+                               validation_split=self.validation_size,
+                               verbose=self.verbose).history
 
     @only_fitted(['model_', 'history_'])
     def _decision_function(self, X):
