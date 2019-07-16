@@ -30,6 +30,7 @@ class BaseDetector(abc.ABC):
         self.history_ = None
         self.explainer_ = None
         self.shap_values_ = None
+        self.data_shap_values_ = None
         self._mu = None
         self._sigma = None
 
@@ -154,7 +155,7 @@ class BaseDetector(abc.ABC):
         model.load_model(path)
         return model
 
-    def explain(self, data_to_explain, background, f=None, nsamples=1000):
+    def explain(self, data_to_explain, background, f=None, nsamples=1000, **kwargs):
         if f is None:
             def f(x):
                 return self.decision_function(x)
@@ -162,8 +163,13 @@ class BaseDetector(abc.ABC):
         self.explainer_ = shap.KernelExplainer(f, background)
 
         self.shap_values_ = self.explainer_.shap_values(data_to_explain, nsamples=nsamples)
-        return shap.force_plot(self.explainer_.expected_value, self.shap_values_, data_to_explain)
+        self.data_shap_values_ = data_to_explain
+        return shap.force_plot(self.explainer_.expected_value, self.shap_values_, data_to_explain, **kwargs)
 
-    @only_fitted(['explainer_', 'shap_values_'])
-    def explain_summary_plot(self, test_data):
-        return shap.summary_plot(self.shap_values_, test_data)
+    @only_fitted(['explainer_', 'shap_values_', 'data_shap_values_'])
+    def explain_summary_plot(self, **kwargs):
+        return shap.summary_plot(self.shap_values_, self.data_shap_values_, **kwargs)
+
+    @only_fitted(['explainer_', 'shap_values_', 'data_shap_values_'])
+    def explain_dependence_plot(self, feature='rank(1)', **kwargs):
+        return shap.dependence_plot(feature, self.shap_values_, self.data_shap_values_, **kwargs)

@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pymli",
-    version="0.0.6",
+    version="0.0.7",
     author="Franco Lianza",
     author_email="lianza.fl@gmail.com",
     description="A Python Machine Learning Library",
