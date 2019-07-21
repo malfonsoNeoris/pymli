@@ -10,7 +10,7 @@ with open(path.join(path.abspath(path.dirname(__file__)), 'requirements.txt'), e
 
 setuptools.setup(
     name="pymli",
-    version="0.0.8",
+    version="0.0.9",
     author="Franco Lianza",
     author_email="lianza.fl@gmail.com",
     description="A Python Machine Learning Library",
