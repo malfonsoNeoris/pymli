@@ -2,8 +2,8 @@ from sklearn.svm import OneClassSVM as SKLearnOneClassSVM
 from sklearn.utils.validation import check_is_fitted
 from sklearn.utils import check_array
 
-from .base import BaseDetector
-from ..utils.utility import invert_order
+from pymli.anomaly.core import BaseDetector
+from pymli.utils.utility import invert_order
 
 
 class OneClassSVM(BaseDetector):

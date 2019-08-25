@@ -1,9 +1,9 @@
 from sklearn.ensemble import IsolationForest as SKLearnIsolationForest
 
-from .base import BaseDetector
+from pymli.anomaly.core import BaseDetector
 from .mixins import SKlearnSaveModelMixin
-from ..utils.utility import invert_order
-from ..utils.decorators import only_fitted
+from pymli.utils.utility import invert_order
+from pymli.utils.decorators import only_fitted
 
 
 class IsolationForest(BaseDetector, SKlearnSaveModelMixin):

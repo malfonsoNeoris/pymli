@@ -4,7 +4,7 @@ from joblib import dump, load
 from keras.models import model_from_json
 from keras.utils.vis_utils import plot_model
 
-from ..utils.decorators import only_fitted
+from pymli.utils.decorators import only_fitted
 
 
 class SaveModelMixin(abc.ABC):

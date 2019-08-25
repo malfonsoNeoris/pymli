@@ -1,36 +1,35 @@
-import pickle
-import keras.backend as K
+from keras import Input, Model
 
-from keras import Sequential
-from keras.layers import Input, Dense, Lambda, Multiply, Add
-from keras.models import Model, model_from_json
+from keras.models import Sequential, model_from_json
 from keras.utils.vis_utils import plot_model
+from keras.layers import Dense, Dropout
 from keras.regularizers import l2
 
-from .base import BaseDetector
-from .layers.kldivergence import KLDivergenceLayer
-from ..utils.stats_models import pairwise_distances
-from ..utils.decorators import only_fitted
+from pymli.anomaly.core import BaseDetector
+from pymli.utils.stats_models import pairwise_distances
+from pymli.utils.decorators import only_fitted
 
 
-class VariationalAutoEncoder(BaseDetector):
+class AutoEncoder(BaseDetector):
     def __init__(self, intermediate_dim=64, latent_dim=32,
                  hidden_activation='relu', output_activation='sigmoid',
-                 l2_regularizer=0.1, optimizer='rmsprop',
-                 epochs=100, batch_size=32,
-                 validation_size=0.1, preprocessing=False,
+                 loss='binary_crossentropy', optimizer='rmsprop',
+                 epochs=100, batch_size=32, dropout_rate=0.2,
+                 l2_regularizer=0.1, validation_size=0.1, preprocessing=False,
                  verbose=1, contamination=0.1, random_state=None):
-        super(VariationalAutoEncoder, self).__init__(contamination=contamination,
-                                                     preprocessing=preprocessing,
-                                                     random_state=random_state)
+        super(AutoEncoder, self).__init__(contamination=contamination,
+                                          preprocessing=preprocessing,
+                                          random_state=random_state)
         self.intermediate_dim = intermediate_dim
         self.latent_dim = latent_dim
         self.hidden_activation = hidden_activation
         self.output_activation = output_activation
-        self.l2_regularizer = l2_regularizer
+        self.loss = loss
         self.optimizer = optimizer
         self.epochs = epochs
         self.batch_size = batch_size
+        self.dropout_rate = dropout_rate
+        self.l2_regularizer = l2_regularizer
         self.validation_size = validation_size
         self.preprocessing = preprocessing
         self.verbose = verbose
@@ -42,46 +41,38 @@ class VariationalAutoEncoder(BaseDetector):
         if self.intermediate_dim > self.n_features_:
             raise ValueError("The number of neurons should not exceed the number of features")
 
-        x = Input(shape=(self.n_features_,))
-        h = Dense(self.intermediate_dim,
-                  activation=self.hidden_activation,
-                  activity_regularizer=l2(self.l2_regularizer))(x)
-
-        z_mu = Dense(self.latent_dim, activity_regularizer=l2(self.l2_regularizer))(h)
-        z_log_var = Dense(self.latent_dim, activity_regularizer=l2(self.l2_regularizer))(h)
-
-        z_mu, z_log_var = KLDivergenceLayer()([z_mu, z_log_var])
-        z_sigma = Lambda(lambda t: K.exp(.5 * t))(z_log_var)
-
-        eps = Input(tensor=K.random_normal(shape=(K.shape(x)[0], self.latent_dim), seed=self.random_state))
-        z_eps = Multiply()([z_sigma, eps])
-        z = Add()([z_mu, z_eps])
+        inputs = Input(shape=(self.n_features_,))
+        encoded_intermediate = Dense(self.intermediate_dim,
+                                     activation=self.hidden_activation,
+                                     activity_regularizer=l2(self.l2_regularizer))(inputs)
+        encoded_intermediate = Dropout(self.dropout_rate)(encoded_intermediate)
+        encoded_latent = Dense(self.latent_dim,
+                               activation=self.hidden_activation,
+                               activity_regularizer=l2(self.l2_regularizer))(encoded_intermediate)
 
         decoder = Sequential([
             Dense(self.intermediate_dim,
                   input_dim=self.latent_dim,
                   activation=self.hidden_activation,
                   activity_regularizer=l2(self.l2_regularizer)),
+            Dropout(self.dropout_rate),
             Dense(self.n_features_,
                   activation=self.output_activation,
                   activity_regularizer=l2(self.l2_regularizer))
         ])
 
-        x_pred = decoder(z)
+        outputs = decoder(encoded_latent)
 
-        def nll(y_true, y_pred):
-            return K.sum(K.binary_crossentropy(y_true, y_pred), axis=-1)
-
-        vae = Model(inputs=[x, eps], outputs=x_pred, name='vae')
-        vae.compile(optimizer=self.optimizer, loss=nll)
+        model = Model(inputs, outputs)
+        model.compile(loss=self.loss, optimizer=self.optimizer)
 
         if self.verbose > 0:
-            print(vae.summary())
+            print(model.summary())
 
         self.decoder_ = decoder
-        self.encoder_ = Model(x, z_mu)
+        self.encoder_ = Model(inputs, encoded_latent)
 
-        return vae
+        return model
 
     def _fit_model(self, X, y=None):
         return self.model_.fit(X, X,
@@ -92,24 +83,8 @@ class VariationalAutoEncoder(BaseDetector):
 
     @only_fitted(['model_', 'history_'])
     def _decision_function(self, X):
-        pred_scores = self.decoder_.predict(self.encoder_.predict(X, batch_size=self.batch_size),
-                                            batch_size=self.batch_size)
+        pred_scores = self.model_.predict(X, batch_size=self.batch_size)
         return pairwise_distances(X, pred_scores)
-
-    @only_fitted(['model_', 'history_'])
-    def save(self, path):
-        model_ = self.model_
-        encoder_ = self.encoder_
-        decoder_ = self.decoder_
-        self.model_ = None
-        self.encoder_ = None
-        self.decoder_ = None
-        with open(path + '/model.pkl', 'wb') as file:
-            pickle.dump(self, file, pickle.HIGHEST_PROTOCOL)
-        self.model_ = model_
-        self.encoder_ = encoder_
-        self.decoder_ = decoder_
-        self.save_model(path)
 
     @only_fitted(['model_', 'history_'])
     def save_model(self, path):
@@ -128,9 +103,9 @@ class VariationalAutoEncoder(BaseDetector):
 
     def load_model(self, path):
         with open(path + '/architecture_model_.json', 'r') as file:
-            self.model_ = model_from_json(file.read(), custom_objects={'KLDivergenceLayer': KLDivergenceLayer})
+            self.model_ = model_from_json(file.read())
         with open(path + '/architecture_encoder_.json', 'r') as file:
-            self.encoder_ = model_from_json(file.read(), custom_objects={'KLDivergenceLayer': KLDivergenceLayer})
+            self.encoder_ = model_from_json(file.read())
         with open(path + '/architecture_decoder_.json', 'r') as file:
             self.decoder_ = model_from_json(file.read())
         self.model_.load_weights(path + '/model_.h5')
